@@ -8,28 +8,42 @@ import { Observable } from 'rxjs';
 })
 export class FruitsService {
 
+  baseUrl='fruits'
+
   constructor(private http: HttpClient) { }
 
-  get():Observable<Fruits[]>{
-    return this.http.get<Fruits[]>('http://localhost:3004/fruits');
+  addToCart(cartItem:Fruits){
+      let alreadyExistsInCart:boolean =false;
+      let existingCardItem = undefined;
+
+
+  }
+
+  get(){
+    return this.http.get<Fruits[]>(`${this.baseUrl}`);
+
   }
 
   create(Payload:Fruits):Observable<Fruits>{
-    return this.http.post<Fruits>('http://localhost:3004/fruits',Payload);
+    return this.http.post<Fruits>(`${this.baseUrl}`,Payload);
   }
 
   getById(id:number):Observable<Fruits>{
-    return this.http.get<Fruits>(`http://localhost:3004/fruits/${id}`);
+    return this.http.get<Fruits>(`${this.baseUrl}/${id}`);
   }
 
-  update(Payload:Fruits):Observable<Fruits>{
-    return this.http.put<Fruits>(`http://localhost:3004/fruits/${Payload.id}`,Payload);
+  update(Payload:any){
+    return this.http.put(`${this.baseUrl}/${Payload.id}`,Payload);
   }
 
-  delete(id:number){
-    console.log(id,"deleted data api")
-    return this.http.delete<Fruits>(`http://localhost:3000/fruits/${id}`);
+  deleteData(values:any){
+    console.log(values,"deleted data api")
+
+  return this.http.delete<Fruits>(`${this.baseUrl}/${values.id}`);
+
+
  }
+
 
 
 }

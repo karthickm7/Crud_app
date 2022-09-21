@@ -1,33 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from '../authentication.guard';
+import { CartcomponentComponent } from './cartcomponent/cartcomponent.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: 'fruits/home',
-    component: HomeComponent,
+    path: 'home',
+    component: HomeComponent,canActivate:[AuthenticationGuard]
   },
   {
-    path:"",
-    redirectTo:'fruits/home',
-    pathMatch:'full'
+    path: '',
+    redirectTo:'register',
+    pathMatch: 'full',
   },
   {
-    path: 'fruits/create',
-    component:CreateComponent,
-
+    path: 'create',
+    component: CreateComponent,
   },
   {
-    path: 'fruits/edit/:id',
-    component:EditComponent,
-
+    path: 'edit/:id',
+    component: EditComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path:'cart',
+    component:CartcomponentComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FruitsRoutingModule { }
+export class FruitsRoutingModule {}
