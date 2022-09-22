@@ -1,18 +1,36 @@
-
-<app-header></app-header>
+<mat-toolbar>
+  <span>FRUIT SHOPPER</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    routerLink="/cart"
+    aria-label="Example icon-button with heart icon"
+  >
+    <button type="button" class="btn border-secondary px-4 position-relative">
+      Cart<mat-icon class="cart px-1">add_shopping_cart</mat-icon>
+      <span
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark"
+      >
+        {{ itemCount() }}
+      </span>
+    </button>
+  </button>
+</mat-toolbar>
 <div class="container">
   <div class="row mt-2">
     <div class="col col-md-4 offset-md-4"></div>
   </div>
-  <div class="search-hero d-flex">
+  <div class="search-hero d-flex justify-content-end ms-auto">
     <input
-      class="form-control"
+      class="inputt"
       type="text"
       placeholder="Search..."
       [(ngModel)]="filterTerm"
       name="search"
       autocomplete="off"
     />
+    <label><mat-icon class="icon">search</mat-icon></label>
     <!-- <a class="btn btn-primary mx-2" routerLink="/fruits/create">Create</a> -->
   </div>
 
@@ -45,24 +63,33 @@
       </tr>
     </tbody>
   </table> -->
-   <div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-4 mt-3" *ngFor="let item of allFruits | filter: filterTerm as searchResult">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top w-18rwm" src="{{item.irl}}" alt="Card image cap">
+      <div
+        class="col-lg-4 mt-3"
+        *ngFor="let item of allFruits | filter: filterTerm as searchResult"
+      >
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top w-18rwm"
+            src="{{ item.irl }}"
+            alt="Card image cap"
+          />
           <div class="card-body">
-            <h5 class="card-title">{{item.Name}}</h5>
+            <h5 class="card-title">{{ item.Name }}</h5>
             <!-- <p class="card-text">Quantity:{{item.Quantity}}</p> -->
-            <p class="card-text">{{item.Price|currency}}</p>
+            <p class="card-text">{{ item.Price | currency: "INR" }}</p>
             <div class="d-flex justify-content-between">
-            <!-- <button class="btn btn-dark">Buy Now</button> -->
-            <button class="btn btn-dark" (click)="addToCart(item,template)">Add To Cart</button>
-          </div>
+              <button class="btn btn-dark">Buy Now</button>
+              <button class="btn btn-dark" (click)="addToCart(item, template)">
+                Add To Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-   </div>
+  </div>
   <div *ngIf="(allFruits | filter: filterTerm).length === 0">
     <h1>No Content</h1>
   </div>
@@ -99,12 +126,16 @@
 </div>
 
 <ng-template #template>
-  <div class="modal-body">
-    Your product has been added to the cart!
-  </div>
+  <div class="modal-body">Your product has been added to the cart!</div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default btn-outline-success" (click)="discardAll()"  data-dismiss="modal"> YES </button>
-
+    <button
+      type="button"
+      class="btn btn-default btn-outline-success"
+      (click)="discardAll()"
+      data-dismiss="modal"
+    >
+      YES
+    </button>
   </div>
 </ng-template>
 <!-- (click)="openDeleteModal(item)" -->

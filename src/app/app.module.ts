@@ -21,7 +21,6 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +38,7 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+   
     ModalModule.forRoot(),
     ToastrModule.forRoot(),
 

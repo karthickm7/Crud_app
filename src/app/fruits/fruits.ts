@@ -3,5 +3,5 @@ export interface Fruits {
   Name: string;
   Quantity: number;
   Price:number;
-  
+  irl:number|string
 }

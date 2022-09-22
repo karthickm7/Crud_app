@@ -10,6 +10,9 @@ export class CartService {
   addToCart(product:Fruits) {
     this.items.push(product);
   }
+  deleteToCart(product:Fruits) {
+    this.items.pop();
+  }
 
   getItems() {
     return this.items;

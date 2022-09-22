@@ -16,6 +16,10 @@ import { SubmitButtonComponent } from '../shared/submit-button/submit-button.com
 import { HeaderComponent } from '../shared/header/header.component';
 import { CartcomponentComponent } from './cartcomponent/cartcomponent.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { ShippingComponent } from './shipping/shipping.component';
 
 
 
@@ -30,6 +34,7 @@ import { SharedModule } from '../shared/shared.module';
     LoginComponent,
 
     CartcomponentComponent,
+     ShippingComponent,
 
 
 
@@ -43,7 +48,10 @@ import { SharedModule } from '../shared/shared.module';
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     SharedModule,
+    MatToolbarModule,
     ToastrModule.forRoot(),
+    MatIconModule,
+    MatMenuModule
 
 
 

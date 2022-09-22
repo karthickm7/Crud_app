@@ -11,11 +11,12 @@ import { FruitsService } from '../fruits.service';
 })
 export class EditComponent implements OnInit {
 
-  fruitForm: Fruits = {
+  fruitForm:Fruits = {
     id: 0,
     Name:'',
     Price: 0,
     Quantity: 0,
+    irl:''
   };
 
   constructor(private route: ActivatedRoute,

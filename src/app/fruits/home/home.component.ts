@@ -62,18 +62,24 @@ if(this.allFruits == 0){
   // }
 
   addToCart(product: Fruits,template:TemplateRef<any>) {
+
+    // this.modalRef = this.modalservice.show(template,
+    //   {
+    //     class: 'modal-dialogue-centered modal-md',
+    //     ignoreBackdropClick:true,
+    //   }
+    // );
     this.cartService.addToCart(product);
-    this.modalRef = this.modalservice.show(template,
-      {
-        class: 'modal-dialogue-centered modal-md',
-        ignoreBackdropClick:true,
-      }
-    );
 
   }
 
   discardAll(){
 
-    this.modalservice._hideModal(1);
+    this.modalservice.hide();
   }
+
+  itemCount(){
+    return this.cartService.itemsCount();
+  }
+
 }

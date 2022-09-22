@@ -2,4 +2,34 @@
   max-width: 500px;
   padding-top: 45px;
   margin-bottom:20px;
+  position: relative;
+
+}
+.icon{
+  color: black;
+  margin-top: 15px;
+  position: absolute;
+  top:45px;
+  right: 15px;
+
+}
+
+.inputt{
+  border: solid;
+  padding: 10px;
+  border-radius: 52px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-icon{
+  border: none;
+  background: transparent;
+}
+
+
+.cart{
+  size: 100px;
 }
