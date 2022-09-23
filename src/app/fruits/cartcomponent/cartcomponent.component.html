@@ -1,6 +1,6 @@
 
 <mat-toolbar>
-  <span>FRUIT SHOPPER</span>
+  <span><strong>F R U I T </strong> S H O P P E R</span>
   <span class="example-spacer"></span>
   <button class="button" [matMenuTriggerFor]="menu">CART</button>
 </mat-toolbar>
@@ -8,7 +8,7 @@
   <button mat-menu-item routerLink="/home">View Items</button>
   <button mat-menu-item routerLink="/login">Log Out</button>
 </mat-menu>
-
+<div *ngIf="items.length===0" class='alert atert-info'><h1>Your Cart Is Empty.</h1></div>
 
 <!-- <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.Name}}</span>
@@ -32,7 +32,7 @@
     </div>
   </div>
  </div> -->
-
+<div *ngIf="items.length>0"  class="container">
 <table class="table">
   <thead>
     <tr>
@@ -40,7 +40,9 @@
       <th scope="col">Name</th>
       <th scope="col">Quantity</th>
       <th scope="col">Price</th>
+
       <th scope="col">Actions</th>
+
     </tr>
   </thead>
   <tbody>
@@ -53,9 +55,10 @@
         />
       </td>
       <td>{{ item.Name }}</td>
-      <td>{{ item.Quantity }}</td>
-      <td>{{ item.Price }}</td>
+      <td>{{ item.Quantity }} <button class="px-1 py-0 border rounded " (click)="onIncrement()">+</button><input type="number" min="0" step="1" oninput="validity.valid||(value='')"  class="inputt"><button class="px-1 py-0 border rounded ">-</button></td>
 
+      <!-- <td>{{ item.Price| currency:'INR'}}</td> -->
+      <td>{{ item.Quantity*item.Price| currency:'INR'}}</td>
       <td>
         <button type="button" class="btn btn-danger" (click)="delete(item)">Remove</button>
       </td>
@@ -65,6 +68,8 @@
     </tr>
   </tbody>
 </table>
+<strong>Total amount :</strong>{{cartTotal | currency:'INR'}}
+</div>
 
 
 <!-- <div class="formm">

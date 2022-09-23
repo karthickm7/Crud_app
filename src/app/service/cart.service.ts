@@ -8,7 +8,21 @@ export class CartService {
 
   constructor() { }
   addToCart(product:Fruits) {
-    this.items.push(product);
+    let count:number=0;
+    for(let values of this.items){
+      if(values.id == product.id){
+       count++;
+      }
+    }
+    if(count>0){
+      product.Quantity+=1;
+      console.log('already exist')
+
+    }else{
+      this.items.push(product);
+      console.log('newly added')
+    }
+
   }
   deleteToCart(product:Fruits) {
     this.items.pop();

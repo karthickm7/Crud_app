@@ -61,14 +61,10 @@ if(this.allFruits == 0){
   //     this.fruitService.addToCart(product)
   // }
 
-  addToCart(product: Fruits,template:TemplateRef<any>) {
+  addToCart(product: Fruits) {
 
-    // this.modalRef = this.modalservice.show(template,
-    //   {
-    //     class: 'modal-dialogue-centered modal-md',
-    //     ignoreBackdropClick:true,
-    //   }
-    // );
+    
+
     this.cartService.addToCart(product);
 
   }

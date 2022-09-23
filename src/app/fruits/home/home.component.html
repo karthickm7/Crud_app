@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>FRUIT SHOPPER</span>
+  <span><strong>F R U I T </strong> S H O P P E R</span>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
@@ -76,12 +76,12 @@
             alt="Card image cap"
           />
           <div class="card-body">
-            <h5 class="card-title">{{ item.Name }}</h5>
+            <h1 class="card-title">{{ item.Name }}</h1>
             <!-- <p class="card-text">Quantity:{{item.Quantity}}</p> -->
-            <p class="card-text">{{ item.Price | currency: "INR" }}</p>
+            <h3 class="card-text">{{ item.Price | currency: "INR" }}</h3>
             <div class="d-flex justify-content-between">
               <button class="btn btn-dark">Buy Now</button>
-              <button class="btn btn-dark" (click)="addToCart(item, template)">
+              <button class="btn btn-dark" (click)="addToCart(item)">
                 Add To Cart
               </button>
             </div>

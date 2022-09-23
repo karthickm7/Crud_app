@@ -19,11 +19,15 @@ export class CartcomponentComponent implements OnInit {
   });
   // deleteModal: any;
   // valueTodelete: any;
-
+  cartTotal=0
 
   constructor(private cartService:CartService, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+    console.log(this.items,'items')
+      this.items.forEach(item=>{
+        this.cartTotal+=(item.Quantity *item.Price)
+      })
 
     // this.deleteModal = new window.bootstrap.Modal(
     //   document.getElementById('deleteModal')
@@ -49,6 +53,8 @@ export class CartcomponentComponent implements OnInit {
    this.items.splice(this.items.indexOf(Product),1)
   }
 
-
+  onIncrement(){
+    
+  }
 
 }
