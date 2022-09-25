@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -17,6 +17,7 @@ import { AuthenticationGuard } from './authentication.guard';
 import { HeaderComponent } from './shared/header/header.component';
 import {MatIconModule} from '@angular/material/icon';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -41,13 +42,15 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
    
     ModalModule.forRoot(),
     ToastrModule.forRoot(),
+    IonicModule.forRoot(),
 
 
 
   ],
 
   providers: [AuthguardSeviceService,AuthenticationGuard,BsModalService,{provide:HTTP_INTERCEPTORS,useClass:httpHttpInterceptor,multi:true}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
 

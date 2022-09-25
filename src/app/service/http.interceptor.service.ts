@@ -13,7 +13,7 @@ export class httpHttpInterceptor implements HttpInterceptor {
     Observable<HttpEvent<any>> {
       console.log(req.url)
       const newReq =req.clone({
-        url:"http://localhost:3000/"+req.url,
+        // url:"http://localhost:3000/"+req.url,
         headers:req.headers.set('Authorization','karthick test')
     })
       console.log('interceptorrrrrrr',req)

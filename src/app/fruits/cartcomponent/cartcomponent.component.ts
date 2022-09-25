@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import { FormBuilder } from '@angular/forms';
+
+
 import { Fruits } from '../fruits';
 
 
@@ -11,15 +13,16 @@ declare var window: any;
   styleUrls: ['./cartcomponent.component.scss']
 })
 export class CartcomponentComponent implements OnInit {
-
-  items = this.cartService.getItems();
+  
+  items:Fruits[]=[];
   checkoutForm = this.fb.group({
     name: '',
     address: ''
   });
   // deleteModal: any;
   // valueTodelete: any;
-  cartTotal=0
+  cartTotal=0;
+ 
 
   constructor(private cartService:CartService, private fb: FormBuilder,) { }
 
@@ -27,7 +30,8 @@ export class CartcomponentComponent implements OnInit {
     console.log(this.items,'items')
       this.items.forEach(item=>{
         this.cartTotal+=(item.Quantity *item.Price)
-      })
+      });
+      this.get();
 
     // this.deleteModal = new window.bootstrap.Modal(
     //   document.getElementById('deleteModal')
@@ -53,8 +57,26 @@ export class CartcomponentComponent implements OnInit {
    this.items.splice(this.items.indexOf(Product),1)
   }
 
-  onIncrement(){
-    
+  get() {
+    this.cartService.getItems().subscribe((data) => {
+      this.items = data;
+    });
   }
+
+  onIncrement(product:Fruits){
+    console.log(this.items)
+    product.Quantity +=1;
+  }
+
+  onDecrement(product:Fruits){
+    console.log(this.items)
+    if(product.Quantity !=1){
+      product.Quantity -=1
+    }
+    }
+    onKey(event:any){
+      console.log(this.items,'keyyyy')
+      event.target.value
+    }
 
 }

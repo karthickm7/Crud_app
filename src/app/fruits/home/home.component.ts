@@ -11,6 +11,7 @@ declare var window: any;
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  color:string='Azure'
   allFruits: any = [];
   deleteModal: any;
   valueTodelete: any;

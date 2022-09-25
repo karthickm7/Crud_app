@@ -2,13 +2,13 @@
   <span><strong>F R U I T </strong> S H O P P E R</span>
   <span class="example-spacer"></span>
   <button
-    mat-icon-button
+
     class="example-icon favorite-icon"
     routerLink="/cart"
     aria-label="Example icon-button with heart icon"
   >
     <button type="button" class="btn border-secondary px-4 position-relative">
-      Cart<mat-icon class="cart px-1">add_shopping_cart</mat-icon>
+      CART<mat-icon class="cart px-1">add_shopping_cart</mat-icon>
       <span
         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark"
       >
@@ -80,8 +80,9 @@
             <!-- <p class="card-text">Quantity:{{item.Quantity}}</p> -->
             <h3 class="card-text">{{ item.Price | currency: "INR" }}</h3>
             <div class="d-flex justify-content-between">
-              <button class="btn btn-dark">Buy Now</button>
-              <button class="btn btn-dark" (click)="addToCart(item)">
+              <!-- <button class="btn btn-dark">Buy Now</button> -->
+              <button mat-raised-button>Buy Now</button>
+              <button  matRipple [matRippleColor]="color"  class="btn btn-dark" (click)="addToCart(item)">
                 Add To Cart
               </button>
             </div>
