@@ -56,7 +56,7 @@
       </td>
       <td>{{ item.Name }}</td>
       <td>
-        <button class="px-1 py-0 border rounded " (click)="onIncrement(item)"><ion-icon name="add-outline"></ion-icon></button><input   (keyup)="onKey($event)"  class="qtyinput text-center"  type="number" value="{{ item.Quantity }}" min="0" step="1" oninput="validity.valid||(value='')"  ><button class="px-1 py-0 border rounded " (click)="onDecrement(item)"><ion-icon name="remove-outline"></ion-icon></button>
+        <button class="px-1 py-0 border rounded " (click)="onIncrement(item)"><ion-icon name="add-outline"></ion-icon></button><input   oninput="validity.valid||(value='')"  (keyup)="onKey($event,item)"  class="qtyinput text-center"  type="number"   value="{{ item.Quantity }}" min="1" ><button class="px-1 py-0 border rounded " (click)="onDecrement(item)"><ion-icon name="remove-outline"></ion-icon></button>
         </td>
 
       <!-- <td>{{ item.Price| currency:'INR'}}</td> -->
@@ -65,7 +65,7 @@
         <button type="button" class="btn btn-danger" (click)="delete(item)">Remove</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger" routerLink="/shipping">Confirm Order</button>
+        <button type="button" class="btn btn-danger" (click)="confirmOrder(item)"   >Confirm Order</button>
       </td>
     </tr>
   </tbody>

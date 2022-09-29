@@ -40,7 +40,7 @@ const routes: Routes = [
     component:CartcomponentComponent
   },
   {
-    path:'shipping',
+    path:'shipping/:id',
     component:ShippingComponent
   }
 ];

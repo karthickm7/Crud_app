@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   valueTodelete: any;
   filterTerm: string = '';
   showTable: boolean = false;
+  payload: { id: number; Name: string; Quantity: number; Price: number; irl: string | number; };
+
 
   constructor(private fruitService: FruitsService,private cartService:CartService, public modalservice:BsModalService, public modalRef: BsModalRef) {}
 
@@ -64,11 +66,16 @@ if(this.allFruits == 0){
 
   addToCart(product: Fruits) {
 
-    
+           this.cartService.addToCart(product)
 
-    this.cartService.addToCart(product);
 
-  }
+  };
+
+
+
+
+
+
 
   discardAll(){
 
