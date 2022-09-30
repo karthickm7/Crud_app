@@ -6,6 +6,7 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
 import { ShippingComponent } from './shipping/shipping.component';
 
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'shipping/:id',
     component:ShippingComponent
+  },
+  {
+    path:'payment',
+    component:PaymentComponent
   }
 ];
 

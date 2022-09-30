@@ -1,4 +1,4 @@
-
+<div class="background">
 <mat-toolbar>
   <span><strong>F R U I T </strong> S H O P P E R</span>
   <span class="example-spacer"></span>
@@ -65,12 +65,13 @@
         <button type="button" class="btn btn-danger" (click)="delete(item)">Remove</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger" (click)="confirmOrder(item)"   >Confirm Order</button>
+        <button type="button" class="btn btn-danger " (click)="confirmOrder(item)"   >Confirm Order</button>
       </td>
     </tr>
   </tbody>
 </table>
 <strong>Total amount :</strong>{{cartTotal | currency:'INR'}}
+</div>
 </div>
 
 

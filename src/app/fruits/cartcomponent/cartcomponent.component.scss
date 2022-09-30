@@ -1,9 +1,13 @@
 .image
 {
+
   width: 95px;
   border-radius: 10px;
 }
-
+.background{
+background-color: antiquewhite;
+min-height: 100vh;
+}
 .formm{
   width: 10px;
   margin-left: 10px;
@@ -28,7 +32,7 @@ input::-webkit-inner-spin-button {
   width: 35px;
   margin-left: 5px;
   margin-right: 5px;
-  
+
 }
 
 

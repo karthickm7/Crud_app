@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
 import { Fruits } from '../fruits';
+
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
@@ -29,5 +30,10 @@ export class ShippingComponent implements OnInit {
 
    this.cartProduct=this.itemss.find(x=>x.id === numId),
    console.log(this.cartProduct,'product')
+}
+
+
+paymentPage(){
+     this.router.navigate(['/payment'])
 }
 }

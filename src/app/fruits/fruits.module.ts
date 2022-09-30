@@ -20,7 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { ShippingComponent } from './shipping/shipping.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PaymentComponent } from './payment/payment.component'
 
 
 
@@ -38,6 +39,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
     CartcomponentComponent,
      ShippingComponent,
+     PaymentComponent,
 
 
 
