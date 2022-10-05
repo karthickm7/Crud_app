@@ -18,6 +18,11 @@ import { HeaderComponent } from './shared/header/header.component';
 import {MatIconModule} from '@angular/material/icon';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { IonicModule } from '@ionic/angular';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 
@@ -43,6 +48,10 @@ import { IonicModule } from '@ionic/angular';
     ModalModule.forRoot(),
     ToastrModule.forRoot(),
     IonicModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
 
 
 

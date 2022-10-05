@@ -177,6 +177,16 @@
               "browserTarget": "Crud_App:build:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Crud_App:build:production",
+            "firebaseProject": "fruitshopper-f2de3",
+            "firebaseHostingSite": "fruitshopper-f2de3"
+          }
         }
       }
     }

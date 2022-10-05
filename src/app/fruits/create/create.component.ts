@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Fruits } from '../fruits';
 import { FruitsService } from '../fruits.service';
+import { FiredataService } from 'src/app/service/firedata.service';
+import { Database,set,ref,update } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore/firestore';
 
 @Component({
   selector: 'app-create',
@@ -14,7 +17,7 @@ export class CreateComponent implements OnInit {
   createForm: any;
   submitted: boolean=false;
 
-  constructor(private fruitService: FruitsService , private router:Router,private fb:FormBuilder ,private toast: ToastrService ) { }
+  constructor(private fruitService: FruitsService , private router:Router,private fb:FormBuilder ,private toast: ToastrService,private fs: AngularFirestore ,private fireservice :FiredataService) { }
 
   // fruitForm:Fruits={
   //   id: 0,
@@ -48,12 +51,13 @@ export class CreateComponent implements OnInit {
     //           console.log(err)
     //     }
     // }))
-    this.fruitService.create(this.createForm.getRawValue()).subscribe((res)=>{
-      console.log(res,'post response')
+    // this.fruitService.create(this.createForm.getRawValue()).subscribe((res)=>{
+    //   console.log(res,'post response')
 
-      this.toast.show('Saved Successfully');
-      this.router.navigate(['/fruits/home']);
-    })
+    //   this.toast.show('Saved Successfully');
+    //   this.router.navigate(['/fruits/home']);
+    // })
+    this.fireservice.createData(this.createForm)
   }
   get f() { return this.createForm.controls; }
 

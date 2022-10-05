@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fruitshopper-f2de3": {
+      "hosting": {
+        "Crud_App": [
+          "fruitshopper-f2de3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fruitshopper-f2de3"
+  }
+}

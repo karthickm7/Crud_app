@@ -48,10 +48,14 @@
   <tbody>
     <tr *ngFor="let item of items">
       <td>
+
         <img
+
           class="card-img-top image"
           src="{{ item.irl }}"
           alt="Card image cap"
+
+
         />
       </td>
       <td>{{ item.Name }}</td>
@@ -65,7 +69,7 @@
         <button type="button" class="btn btn-danger" (click)="delete(item)">Remove</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger " (click)="confirmOrder(item)"   >Confirm Order</button>
+        <button type="button" class="btn btn-danger " (click)="confirmOrder(item)"   >Check Out</button>
       </td>
     </tr>
   </tbody>

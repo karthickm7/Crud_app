@@ -22,6 +22,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ShippingComponent } from './shipping/shipping.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaymentComponent } from './payment/payment.component'
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environments/environment';
+
 
 
 
@@ -35,7 +42,7 @@ import { PaymentComponent } from './payment/payment.component'
     EditComponent,
     RegisterComponent,
     LoginComponent,
-    
+
 
     CartcomponentComponent,
      ShippingComponent,
@@ -59,7 +66,13 @@ import { PaymentComponent } from './payment/payment.component'
     ToastrModule.forRoot(),
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    FormsModule,ReactiveFormsModule,
 
 
 

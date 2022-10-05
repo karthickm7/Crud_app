@@ -3,6 +3,7 @@ import { Fruits } from '../fruits';
 import { FruitsService } from '../fruits.service';
 import { CartService } from 'src/app/service/cart.service';
 import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 declare var window: any;
 @Component({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   payload: { id: number; Name: string; Quantity: number; Price: number; irl: string | number; };
 
 
-  constructor(private fruitService: FruitsService,private cartService:CartService, public modalservice:BsModalService, public modalRef: BsModalRef) {}
+  constructor(private fruitService: FruitsService,private cartService:CartService, public modalservice:BsModalService, public modalRef: BsModalRef,private router: Router) {}
 
   ngOnInit(): void {
 
@@ -64,6 +65,10 @@ if(this.allFruits == 0){
   //     this.fruitService.addToCart(product)
   // }
 
+
+  productDetail(){
+   this.router.navigate(["/cart"])
+  }
   addToCart(product: Fruits) {
 
            this.cartService.addToCart(product)
