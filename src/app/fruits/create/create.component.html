@@ -1,4 +1,9 @@
+<button type="button" class="close pull-right" aria-label="Close" (click)="CloseModal()">
+  <span aria-hidden="true" style="font-size: 2em; color: red;padding: 10px;">&times;</span>
+</button>
+
 <div class="container">
+
   <legend>Create Item</legend>
   <form [formGroup]="createForm" (ngSubmit)="create()">
     <div class="mb-3">

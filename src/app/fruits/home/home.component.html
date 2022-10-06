@@ -31,7 +31,7 @@
       autocomplete="off"
     />
     <label><mat-icon class="icon">search</mat-icon></label>
-    <a class="btn btn-primary mx-2" routerLink="/create">Create</a>
+    <!-- <a class="btn btn-primary mx-2" routerLink="/create">Create</a> -->
   </div>
 
   <!-- <table *ngIf="(allFruits | filter: filterTerm).length !== 0" class="table">
@@ -94,36 +94,6 @@
   </div>
   <div *ngIf="(allFruits | filter: filterTerm).length === 0">
     <h1>No Content</h1>
-  </div>
-</div>
-<div
-  class="modal fade"
-  id="deleteModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">Are you sure to delete the item?</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-danger" (click)="delete()">
-          Confirm Delete
-        </button>
-      </div>
-    </div>
   </div>
 </div>
 

@@ -28,6 +28,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
+import { AdminComponent } from './admin/admin.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 
 
@@ -42,18 +45,20 @@ import { environment } from 'src/environments/environment';
     EditComponent,
     RegisterComponent,
     LoginComponent,
-
-
     CartcomponentComponent,
      ShippingComponent,
      PaymentComponent,
+     AdminComponent,
 
 
 
 
   ],
+  entryComponents: [
+    CreateComponent
+  ],
   imports: [
-    // BrowserAnimationsModule,
+   BrowserAnimationsModule,
     FontAwesomeModule,
     CommonModule,
     MatRippleModule,
@@ -72,7 +77,8 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    FormsModule,ReactiveFormsModule,
+    ModalModule.forRoot()
+
 
 
 

@@ -12,6 +12,7 @@ declare var window: any;
 })
 export class CartcomponentComponent implements OnInit {
   items: Fruits[] = this.cartService.getItems();
+
   checkoutForm = this.fb.group({
     name: '',
     address: '',
@@ -20,10 +21,11 @@ export class CartcomponentComponent implements OnInit {
   // valueTodelete: any;
   cartTotal :number = 0;
 
+
   constructor(private cartService: CartService, private fb: FormBuilder,private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.items, 'items');
+
 
   this.totalAmount();
 
@@ -31,7 +33,10 @@ export class CartcomponentComponent implements OnInit {
     //   document.getElementById('deleteModal')
     // );
 
-  }
+
+
+      
+   }
 
   onSubmit(): void {
     // Process checkout data here
@@ -45,12 +50,9 @@ export class CartcomponentComponent implements OnInit {
   //   this.deleteModal.show();
   // }
 
+
+
   totalAmount(){
-
-    // this.items.forEach((item) => {
-
-    //   this.cartTotal +=item.Price;
-    // });
     this.cartTotal=this.items.reduce((acc,val)=>{
       return acc+(val.Price * val.Quantity)
     },0);

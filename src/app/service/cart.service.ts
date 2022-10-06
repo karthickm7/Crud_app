@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Fruits } from '../fruits/fruits';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,16 +10,19 @@ export class CartService {
   items:Fruits[] = [];
   BaseUrl='http://localhost:3000/items'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private afs : AngularFirestore) { }
 
   addToCart(product:Fruits){
     console.log(this.items,"caertItems")
-    let productExists= false
 
-    for(let i in this.items){
+    let productExists = false
+      for(let i in this.items){
+
       if(this.items[i].id === product.id){
+
         this.items[i].Quantity++
         productExists=true;
+
 
       }
 
@@ -30,10 +34,11 @@ export class CartService {
        this.items.push({
           id:product.id,
           Name: product.Name,
-           Quantity:product.Quantity,
-         Price:product.Price,
-           irl:product.irl})
+          Quantity:product.Quantity,
+          Price:product.Price,
+          irl:product.irl})
     }
+
 
   }
   deleteToCart(product:Fruits) {
@@ -42,9 +47,17 @@ export class CartService {
 
   getItems(){
     return this.items;
-    // return this.http.get<Fruits[]>(`${this.BaseUrl}`);
+
 
   }
+
+  // this.allFruits=res.map((items: any) => {
+  //   const data = items.payload.doc.data();
+  //   data.id = items.payload.doc.id;
+
+  //   return data;
+
+  // });;
 
   // addToCart(product:Fruits):Observable<any>{
   //   return this.http.post<Fruits[]>(`${this.BaseUrl}`,product);

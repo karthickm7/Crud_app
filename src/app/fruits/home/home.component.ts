@@ -4,6 +4,7 @@ import { FruitsService } from '../fruits.service';
 import { CartService } from 'src/app/service/cart.service';
 import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
+import { FiredataService } from 'src/app/service/firedata.service';
 
 declare var window: any;
 @Component({
@@ -21,14 +22,18 @@ export class HomeComponent implements OnInit {
   payload: { id: number; Name: string; Quantity: number; Price: number; irl: string | number; };
 
 
-  constructor(private fruitService: FruitsService,private cartService:CartService, public modalservice:BsModalService, public modalRef: BsModalRef,private router: Router) {}
+  constructor(private fruitService: FruitsService,private cartService:CartService, public modalservice:BsModalService, public modalRef: BsModalRef,private router: Router,private fireservice :FiredataService) {}
 
   ngOnInit(): void {
 
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
+
+
+
     this.get();
+    console.log(this.allFruits,'fruitss')
     //localStorage.removeItem('SeesionUser')
 if(this.allFruits == 0){
 
@@ -38,13 +43,27 @@ if(this.allFruits == 0){
   this.showTable =false
 }
 
+this.fireservice.getData()
+
   }
 
 
   get() {
-    this.fruitService.get().subscribe((data) => {
-      this.allFruits = data;
-    });
+
+    this.fireservice.getData().subscribe((res)=>{
+      this.allFruits=res.map((items: any) => {
+        const data = items.payload.doc.data();
+       // data.id = items.payload.doc.id;
+
+        return data;
+
+      });;
+      console.log(this.allFruits,"fruitss")
+      
+
+    })
+
+
   }
 
   openDeleteModal(values: any) {
@@ -56,7 +75,7 @@ if(this.allFruits == 0){
     this.fruitService.deleteData(this.valueTodelete).subscribe((res) => {
       console.log(res, 'delete res');
       this.deleteModal.hide();
-      this.get();
+      //this.get();
     });
   }
 

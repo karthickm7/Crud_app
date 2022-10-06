@@ -27,9 +27,11 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+
 
 
 
@@ -44,7 +46,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
-   
+
     ModalModule.forRoot(),
     ToastrModule.forRoot(),
     IonicModule.forRoot(),

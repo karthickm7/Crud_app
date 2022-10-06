@@ -16,21 +16,28 @@ export class ShippingComponent implements OnInit {
 
   productid: string | null;
   cartProduct: any;
-  itemss: Fruits[] = this.cartServices.getItems();
+  itemss: Fruits[]
 
-  constructor(public activatedRoute: ActivatedRoute,private router: Router,private cartServices: CartService ) {
+  // this.cartServices.getItems();
+
+  constructor(public activatedRoute: ActivatedRoute,private router: Router,private cartServices: CartService, ) {
    }
 
   ngOnInit(): void {
+
       console.log(this.itemss,'arrayitems')
     this.productid=this.activatedRoute.snapshot.paramMap.get('id');
    let  numId=Number(this.productid)
    console.log(typeof this.productid,'iddd')
 
 
-   this.cartProduct=this.itemss.find(x=>x.id === numId),
+   this.cartProduct=this.itemss.find(x=>{
+    x.id === numId}),
+
    console.log(this.cartProduct,'product')
 }
+
+
 
 
 paymentPage(){

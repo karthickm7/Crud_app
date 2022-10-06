@@ -7,6 +7,7 @@ import { FruitsService } from '../fruits.service';
 import { FiredataService } from 'src/app/service/firedata.service';
 import { Database,set,ref,update } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore/firestore';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-create',
@@ -17,7 +18,7 @@ export class CreateComponent implements OnInit {
   createForm: any;
   submitted: boolean=false;
 
-  constructor(private fruitService: FruitsService , private router:Router,private fb:FormBuilder ,private toast: ToastrService,private fs: AngularFirestore ,private fireservice :FiredataService) { }
+  constructor(private modalService: BsModalService,private fruitService: FruitsService , private router:Router,private fb:FormBuilder ,private toast: ToastrService ,private fireservice :FiredataService) { }
 
   // fruitForm:Fruits={
   //   id: 0,
@@ -38,7 +39,9 @@ export class CreateComponent implements OnInit {
 
 )
   }
-
+  CloseModal() {
+    this.modalService.hide();
+  }
   create(){
     this.submitted = true;
     if(this.createForm.invalid){
@@ -57,7 +60,7 @@ export class CreateComponent implements OnInit {
     //   this.toast.show('Saved Successfully');
     //   this.router.navigate(['/fruits/home']);
     // })
-    this.fireservice.createData(this.createForm)
+    this.fireservice.createData(this.createForm.value)
   }
   get f() { return this.createForm.controls; }
 

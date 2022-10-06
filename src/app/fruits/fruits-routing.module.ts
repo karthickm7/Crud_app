@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from '../authentication.guard';
+import { AdminComponent } from './admin/admin.component';
 import { CartcomponentComponent } from './cartcomponent/cartcomponent.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path:'payment',
     component:PaymentComponent
+  },
+  {
+    path:'admin',
+    component:AdminComponent
   }
 ];
 
