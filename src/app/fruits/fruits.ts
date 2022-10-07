@@ -1,5 +1,5 @@
 export interface Fruits {
-  id:string|number;
+  idd:string|number;
   Name: string;
   Quantity: number;
   Price:number;

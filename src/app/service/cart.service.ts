@@ -18,7 +18,7 @@ export class CartService {
     let productExists = false
       for(let i in this.items){
 
-      if(this.items[i].id === product.id){
+      if(this.items[i].idd === product.idd){
 
         this.items[i].Quantity++
         productExists=true;
@@ -32,7 +32,7 @@ export class CartService {
     if(!productExists){
 
        this.items.push({
-          id:product.id,
+          idd:product.idd,
           Name: product.Name,
           Quantity:product.Quantity,
           Price:product.Price,

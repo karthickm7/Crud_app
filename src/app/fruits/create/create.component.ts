@@ -47,20 +47,13 @@ export class CreateComponent implements OnInit {
     if(this.createForm.invalid){
       return;
     }
-    // this.fruitService.create(this.createForm).subscribe(({
-    //   next:(data)=>{
-    //     this.router.navigate(['/fruits/home'])},
-    //     error:(err)=>{
-    //           console.log(err)
-    //     }
-    // }))
-    // this.fruitService.create(this.createForm.getRawValue()).subscribe((res)=>{
-    //   console.log(res,'post response')
+    else(this.createForm.Valid)
+    {
 
-    //   this.toast.show('Saved Successfully');
-    //   this.router.navigate(['/fruits/home']);
-    // })
-    this.fireservice.createData(this.createForm.value)
+      this.fireservice.createData(this.createForm.value)
+      this.modalService.hide();
+    }
+
   }
   get f() { return this.createForm.controls; }
 

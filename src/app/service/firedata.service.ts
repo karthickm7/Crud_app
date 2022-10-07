@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {addDoc,Firestore,collection,getDocs, deleteDoc, doc} from '@angular/fire/firestore';
+import { BehaviorSubject } from 'rxjs';
 
 import { Fruits } from '../fruits/fruits';
 
@@ -9,6 +10,7 @@ import { Fruits } from '../fruits/fruits';
 })
 export class FiredataService  implements OnInit{
   product:any[];
+  dbEditInfo$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(private fs: Firestore ,private afs : AngularFirestore) { }
   ngOnInit(): void {
@@ -46,12 +48,24 @@ return this.afs.doc('/products/'+product.id).delete();
 
 }
 
-updateProduct(){
+updateProduct(product:any){
+  console.log(product,"editttt")
+  return this.afs.doc('/products/'+product.id).update(product);
 
 }
 
+// update(id: string, data: any): Promise<void> {
+//   return this.tutorialsRef.doc(id).update(data);
+// }
+
 getData() {
   return this.afs.collection('/products').snapshotChanges();
+
+}
+
+getDataById(id:any) {
+  console.log(id,'editeddataid')
+  return this.afs.collection('/products'+id).snapshotChanges();
 
 }
 

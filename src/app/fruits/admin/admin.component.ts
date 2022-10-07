@@ -3,6 +3,7 @@ import { FiredataService } from 'src/app/service/firedata.service';
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { CreateComponent } from '../create/create.component';
 import { Fruits } from '../fruits';
+import { Router } from '@angular/router';
 
 declare var window: any;
 @Component({
@@ -15,12 +16,12 @@ export class AdminComponent implements OnInit {
   deleteModal: any;
   window :any
   valueTodelete:any;
-  message: string;
-  constructor(private fireservice: FiredataService,private modalService: BsModalService,public bsModalRef: BsModalRef,) {}
+
+  constructor(private fireservice: FiredataService,private modalService: BsModalService,public bsModalRef: BsModalRef, private route:Router) {}
 
   ngOnInit(): void {
 
-    this.message='';
+
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
@@ -31,23 +32,28 @@ export class AdminComponent implements OnInit {
     this.fireservice.getData().subscribe((res) => {
       this.allFruits = res.map((items: any) => {
         const data = items.payload.doc.data();
-
+        data.id = items.payload.doc.id;
         return data;
       });
       console.log(this.allFruits, 'fruitss');
     });
   }
   deleteProduct(fruits:Fruits){
-    this.valueTodelete = fruits;
-    this.deleteModal.show();
+     this.valueTodelete = fruits;
+    return this.deleteModal.show();
 
   }
 
   delete(){
     console.log(this.valueTodelete,"delete")
-    this.fireservice.deleteProduct(this.valueTodelete)
-    
+   return this.fireservice.deleteProduct(this.valueTodelete)
 
+
+  }
+
+  edit(data:any){
+    this.fireservice.dbEditInfo$.next(data)
+      this.route.navigate(['/edit'])
   }
 
   openCreateModal(){

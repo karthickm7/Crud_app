@@ -32,7 +32,7 @@ export class ShippingComponent implements OnInit {
 
 
    this.cartProduct=this.itemss.find(x=>{
-    x.id === numId}),
+    x.idd === numId}),
 
    console.log(this.cartProduct,'product')
 }

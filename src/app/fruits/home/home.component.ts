@@ -6,7 +6,7 @@ import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { FiredataService } from 'src/app/service/firedata.service';
 
-declare var window: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,9 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.deleteModal = new window.bootstrap.Modal(
-      document.getElementById('deleteModal')
-    );
+
 
 
 
@@ -59,7 +57,7 @@ this.fireservice.getData()
 
       });;
       console.log(this.allFruits,"fruitss")
-      
+
 
     })
 

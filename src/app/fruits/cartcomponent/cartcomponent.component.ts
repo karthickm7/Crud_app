@@ -35,7 +35,7 @@ export class CartcomponentComponent implements OnInit {
 
 
 
-      
+
    }
 
   onSubmit(): void {
@@ -96,7 +96,7 @@ export class CartcomponentComponent implements OnInit {
 
   }
   confirmOrder(ProductData:Fruits){
-    let numberid=Number(ProductData.id)
+    let numberid=Number(ProductData.idd)
     console.log(typeof numberid,'productiddddd')
    //this.router.navigate(['/shipping'],{queryParams:{id:ProductData.id,Name:ProductData.Name,Quantity:ProductData.Quantity,Price:ProductData.Price,irl:ProductData.irl}});
    this.router.navigate(['/shipping',(numberid)],);
