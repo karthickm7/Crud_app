@@ -14,12 +14,13 @@ export class AdminComponent implements OnInit {
   allFruits: any[];
   deleteModal: any;
   window :any
-  valueTodelete: Fruits;
+  valueTodelete:any;
+  message: string;
   constructor(private fireservice: FiredataService,private modalService: BsModalService,public bsModalRef: BsModalRef,) {}
 
   ngOnInit(): void {
 
-
+    this.message='';
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
@@ -44,7 +45,9 @@ export class AdminComponent implements OnInit {
 
   delete(){
     console.log(this.valueTodelete,"delete")
-    this.fireservice.deleteProduct(this.valueTodelete);
+    this.fireservice.deleteProduct(this.valueTodelete)
+    
+
   }
 
   openCreateModal(){

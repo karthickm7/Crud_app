@@ -2,6 +2,7 @@
 <button type="submit" class="btn btn-outline-secondary mr-4" (click)="openCreateModal()" placement="top" >
   Create Products
 </button>
+<div class="container">
 <table class="table table-striped">
 
   <thead>
@@ -26,11 +27,14 @@
       <button type="button" class="btn btn-outline-secondary mr-2" placement="top"(click)="deleteProduct(fruits)" >
        Delete
       </button>
+      {{message}}
     </td>
   </tr>
   </tbody>
 </table>
+</div>
 
+<!-- delete pop -->
 <div
   class="modal fade"
   id="deleteModal"

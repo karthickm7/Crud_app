@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import {addDoc,Firestore,collection,getDocs} from '@angular/fire/firestore';
+import {addDoc,Firestore,collection,getDocs, deleteDoc, doc} from '@angular/fire/firestore';
 
 import { Fruits } from '../fruits/fruits';
 
@@ -39,8 +39,15 @@ createData(Data:Fruits){
 //   })
 // }
 
-deleteProduct(product:Fruits){
-  this.afs.doc('/products'+product.id).delete();
+deleteProduct(product:any){
+  console.log(product.id,"idd")
+ //return this.afs.collection('/products').doc(productId).delete()
+return this.afs.doc('/products/'+product.id).delete();
+
+}
+
+updateProduct(){
+
 }
 
 getData() {
